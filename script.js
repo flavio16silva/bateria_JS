@@ -18,10 +18,9 @@ document.querySelector('.composer button').addEventListener('click', () => {
         playComposition(somArray) //Função a ser chamada
         //console.log(somArray)
     } else {
-        console.log('Digite um som!') //MELHORAR
+        alert('Favor, crie seu som!') //MELHORAR
     }
 })
-
 
 // ------------------- FUNÇÕES ----------------------
 //Função para ao tocar na tecla executar um som:
@@ -56,4 +55,9 @@ function playComposition(somArray){
 
         esperar += 250
     }
+}
+
+//Função limpar o Input
+function limpar(){
+    document.querySelector('#input').value = ''
 }
