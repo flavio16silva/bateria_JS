@@ -8,7 +8,7 @@ document.body.addEventListener('keyup', (evento) => {
     //console.log(evento.code.toLowerCase())
 })
 
-//JS irá escutar ao click no botão e executar uma função
+//JS irá escutar ao click no botão e executar uma função - Botão TOCAR
 document.querySelector('.composer button').addEventListener('click', () => {
     let som = document.querySelector('#input').value 
     //console.log('Musica', som)
@@ -18,9 +18,19 @@ document.querySelector('.composer button').addEventListener('click', () => {
         playComposition(somArray) //Função a ser chamada
         //console.log(somArray)
     } else {
-        alert('Favor, crie seu som!') //MELHORAR
+        mostrarMensagem()
     }
 })
+
+function mostrarMensagem(){
+    const exibirMensagem = document.getElementById('mensagem')
+    exibirMensagem.textContent = 'Favor montar seu som!!!'
+    exibirMensagem.style.display = 'block'
+
+    setTimeout(() => {
+        exibirMensagem.style.display = 'none'
+    }, 300)
+}
 
 // ------------------- FUNÇÕES ----------------------
 //Função para ao tocar na tecla executar um som:
@@ -57,7 +67,7 @@ function playComposition(somArray){
     }
 }
 
-//Função limpar o Input
+//Função limpar o Input - Botão LIMPAR
 function limpar(){
     document.querySelector('#input').value = ''
 }
