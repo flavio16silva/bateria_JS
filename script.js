@@ -18,19 +18,9 @@ document.querySelector('.composer button').addEventListener('click', () => {
         playComposition(somArray) //Função a ser chamada
         //console.log(somArray)
     } else {
-        mostrarMensagem()
+        mostrarAlerta('Favor montar seu som!!')
     }
 })
-
-function mostrarMensagem(){
-    const exibirMensagem = document.getElementById('mensagem')
-    exibirMensagem.textContent = 'Favor montar seu som!!!'
-    exibirMensagem.style.display = 'block'
-
-    setTimeout(() => {
-        exibirMensagem.style.display = 'none'
-    }, 300)
-}
 
 // ------------------- FUNÇÕES ----------------------
 //Função para ao tocar na tecla executar um som:
@@ -71,3 +61,27 @@ function playComposition(somArray){
 function limpar(){
     document.querySelector('#input').value = ''
 }
+
+
+// Função da Modal - Chamada acima no codigo
+function mostrarAlerta(mensagem) {
+    const alerta = document.getElementById('alertaCustomizado');
+    const mensagemAlerta = document.getElementById('mensagemAlerta');
+    
+    mensagemAlerta.textContent = mensagem;
+    alerta.style.display = 'flex';
+    
+    setTimeout(() => alerta.classList.add('show'), 20) //mostra a transição
+}
+
+function fecharAlerta() {
+    const alerta = document.getElementById('alertaCustomizado');
+    //alerta.style.display = 'none';
+    alerta.classList.remove('show')
+
+    setTimeout(() => {
+        alerta.style.display = 'none' //esconde a transição
+    }, 300);
+}
+
+
